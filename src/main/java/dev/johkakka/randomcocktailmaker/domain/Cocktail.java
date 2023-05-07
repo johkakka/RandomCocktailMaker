@@ -24,4 +24,16 @@ public class Cocktail {
     public List<OtherIngredient> getOtherIngredients() {
         return otherIngredients;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBaseIngredients(List<BaseIngredient> baseIngredients) {
+        this.baseIngredients = baseIngredients;
+    }
+
+    public void setOtherIngredients(List<OtherIngredient> otherIngredients) {
+        this.otherIngredients = otherIngredients;
+    }
 }
