@@ -5,6 +5,10 @@ import dev.johkakka.randomcocktailmaker.domain.Cocktail;
 import dev.johkakka.randomcocktailmaker.domain.OtherIngredient;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 @Service
 public class CocktailServiceImpl implements CocktailService {
 
@@ -18,7 +22,21 @@ public class CocktailServiceImpl implements CocktailService {
 
     @Override
     public Cocktail get() {
-        return null;
+        Random random = new Random();
+        int baseIndex = random.nextInt(0, BaseIngredient.values().length);
+        int otherIndex = random.nextInt(0, OtherIngredient.values().length);
+
+        Cocktail cocktail = new Cocktail();
+
+        List<BaseIngredient> baseIngredientList = new ArrayList<>();
+        baseIngredientList.add(BaseIngredient.values()[baseIndex]);
+        cocktail.setBaseIngredients(baseIngredientList);
+
+        List<OtherIngredient> otherIngredientList = new ArrayList<>();
+        otherIngredientList.add(OtherIngredient.values()[otherIndex]);
+        cocktail.setOtherIngredients(otherIngredientList);
+
+        return cocktail;
     }
 
     @Override
